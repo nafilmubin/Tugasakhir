@@ -9,6 +9,8 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- NAVBAR-->
     <link href="assets/css/kanan.css" rel="stylesheet" />
+     <!-- IMAGE PREVIEW-->
+    <link href="assets/css/images.css" rel="stylesheet" />
      <!-- BARANG-->
     <link href="assets/css/barang.css" rel="stylesheet" />
     <!-- NOTIFICATION-->

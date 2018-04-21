@@ -42,7 +42,7 @@
                 <img src="http://keenthemes.com/assets/bootsnipp/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
                 <div>
                   <a href="#" class="btn">Zoom</a>
-                  <a href="#" class="btn">View</a>
+                  <a href="?page=barang_detail" class="btn">View</a>
                 </div>
               </div>
               <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -57,7 +57,7 @@
                 <img src="http://keenthemes.com/assets/bootsnipp/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
                 <div>
                   <a href="#" class="btn">Zoom</a>
-                  <a href="#" class="btn">View</a>
+                  <a href="?page=barang_detail" class="btn">View</a>
                 </div>
               </div>
               <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -71,7 +71,7 @@
                 <img src="http://keenthemes.com/assets/bootsnipp/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
                 <div>
                   <a href="#" class="btn">Zoom</a>
-                  <a href="#" class="btn">View</a>
+                 <a href="?page=barang_detail" class="btn">View</a>
                 </div>
               </div>
               <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -105,7 +105,7 @@
                 <img src="http://keenthemes.com/assets/bootsnipp/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
                 <div>
                   <a href="#" class="btn">Zoom</a>
-                  <a href="#" class="btn">View</a>
+                  <a href="?page=barang_detail" class="btn">View</a>
                 </div>
               </div>
               <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -119,7 +119,7 @@
                 <img src="http://keenthemes.com/assets/bootsnipp/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
                 <div>
                   <a href="#" class="btn">Zoom</a>
-                  <a href="#" class="btn">View</a>
+                  <a href="?page=barang_detail" class="btn">View</a>
                 </div>
               </div>
               <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
