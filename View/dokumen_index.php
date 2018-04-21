@@ -43,7 +43,7 @@
                                         <tr>
                                             <td>SMI</td>
                                              <td>Technical Specification Document</td>
-                                            <td>TSD.docx</td>
+                                            <td><a href="#">TSD.docx</a></td>
                                             <td>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>

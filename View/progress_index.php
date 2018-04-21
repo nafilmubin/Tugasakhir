@@ -46,7 +46,11 @@
                                             <td>SMI</td>
                                             <td>Login Page</td>
                                             <td>Backlog</td>
-                                            <td>0 %</td>
+                                            <td><div class="progress">
+                                                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%
+                                                  </div>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
@@ -60,7 +64,11 @@
                                             <td>SMI</td>
                                             <td>Mini Blog</td>
                                             <td>Backlog</td>
-                                            <td>0 %</td>
+                                            <td><div class="progress">
+                                                  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%
+                                                  </div>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
