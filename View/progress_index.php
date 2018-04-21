@@ -1,6 +1,6 @@
-   <div class="header col-md-12" style="margin-top: 15px;">
+     <div class="header col-md-12" style="margin-top: 15px;">
                     <div class="col-md-7">
-                            <form role="form" method="POST" action="?page=perencanaan_index">
+                            <form role="form" method="POST" action="?page=progress_index">
                                <!--  <div class="form-group col-md-5">
                                 <input class="form-control" type="text" name="search" value="">
                                 </div>
@@ -26,26 +26,41 @@
                      <!--    Context Classes  -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        Perencanaan Proyek
+                        Progress Proyek
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Prosentase Total = 0 %
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table id="tabel_audit" class="table table-bordered table-hover table-striped">
+                               <table id="tabel_audit" class="table table-bordered table-hover table-striped">
                                     <thead>
                                         <tr>
                                             <th>Proyek</th>
-                                            <th>Manajer Proyek</th>
-                                            <th>Waktu Pelaksanan</th>
-                                            <th>Waktu Tersisa</th>
+                                            <th>Nama Fitur</th>
+                                            <th>Status</th>
+                                            <th>Prosentase</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>SMI</td>
-                                            <td>Mbak Nisa</td>
-                                            <td>3 Bulan</td>
-                                            <td>32 Hari</td>
+                                            <td>Login Page</td>
+                                            <td>Backlog</td>
+                                            <td>0 %</td>
+                                            <td>
+                                                <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                                </a>
+                                                <a href="?page=dokumen_delete&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                                </a>
+                                            </td> 
+                                        </tr>
+                                        <tr>
+                                            <td>SMI</td>
+                                            <td>Mini Blog</td>
+                                            <td>Backlog</td>
+                                            <td>0 %</td>
                                             <td>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
@@ -55,7 +70,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                  
                                     </tbody>
                                 </table>
                             </div>
@@ -63,3 +77,4 @@
                     </div>
                     <!--  end  Context Classes  -->
                 </div>
+    

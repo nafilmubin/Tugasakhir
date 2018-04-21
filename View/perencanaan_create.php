@@ -38,7 +38,7 @@
                         <input class="form-control datepicker" type="text" name="tanggal_mulai" id="tanggal_mulai">
                     </div>
                     <div class="form-group">
-                        <label>Tanggal Mulai</label>
+                        <label>Tanggal Selesai</label>
                         <input class="form-control datepicker" type="text" name="tanggal_selesai" id="tanggal_selesai">
                     </div>
                 

@@ -137,7 +137,7 @@
                                  <a href="?page=perencanaan">Perencanaan <span></span></a>
                             </li>
                             <li>
-                                 <a href="?page=pengajuan_index">Progress<span></span></a>
+                                 <a href="?page=progress_index">Progress<span></span></a>
                             </li>
                             <li>
                                  <a href="?page=peminjaman_index">Garansi<span></span></a>
