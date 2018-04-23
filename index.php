@@ -155,6 +155,99 @@
                             </li>
 
                       </ul>
+
+                      <a href ="#"><i class="fa fa-archive"></i>ADMIN<span></span></a>
+                      <ul class="nav">
+                       <li>
+                        <a href="?page=dashboard"><i class="fa fa-dashboard "></i>Hello Admin<span></span></a>
+                        </li>            
+                       <li>
+                        <a href="?page=rab_index"><i class="fa fa-bank "></i>Rancangan Anggaran Biaya <span></span></a>
+                         </li>
+                         <li>
+                          <a href="?page=pengajuan_index"><i class="fa fa-archive"></i>Pengajuan  <span></span></a>
+                          </li>
+                          <li>
+                          <a href="?page=pembeli_index"><i class="fa fa-cart-plus "></i>Penanggung Jawab <span></span></a>
+                           </li>
+                          <li>
+                          <a href="?page=barang_indexAdmin"><i class =" fa fa-folder-open "></i>Data Barang <span></span></a>
+                           </li>            
+                        </ul>
+
+
+                      <a href ="#"><i class="fa fa-archive"></i>KARYAWAN<span></span></a>
+                      <ul class="nav">
+                        <li>
+                        <a class="" href="?page=dashboard_user">Hello Karyawan</a>
+                    </li>
+                    <li>
+                        <a href="?page=rab_indexuser"><i class="fa fa-bank "></i>Rancangan Anggaran Biaya <span></span></a>
+                    </li>
+
+                    <li>
+                      <a href="?page=pengajuan_indexuser"><i class="fa fa-archive"></i>Pengajuan <span></span></a>
+                      
+                    </li>
+
+                     <li>
+                        <a href="?page=pembeli_indexuser"><i class="fa fa-cart-plus "></i>Penanggung Jawab <span></span></a>
+                    </li>
+                    <li>
+                      <a href ="?page=barang_indexuser"><i class="fa fa-folder-open"></i>Data Barang<span></span></a>
+                    </li> 
+                    </ul>
+
+
+
+                      <a href ="#"><i class="fa fa-archive"></i>PM<span></span></a>
+                      <ul class="nav">
+                    <li>
+                        <a href="?page=dashboard_PM">Hello Project Manager</a>
+                    </li>
+                      <li>
+                        <a href="?page=rab_indexPM"><i class="fa fa-bank "></i>Rancangan Anggaran Biaya <span></span></a>
+                    </li>
+
+                    <li>
+                      <a href="?page=pengajuan_indexPM"><i class="fa fa-archive"></i>Pengajuan<span></span></a>
+                      
+                    </li>
+
+                     <li>
+                        <a href="?page=pembeli_indexPM"><i class="fa fa-cart-plus "></i>Penanggung Jawab <span></span></a>
+                    </li>
+                    <li>
+                      <a href ="?page=barang_indexPM"><i class="fa fa-folder-open"></i>Data Barang<span></span></a>
+                    </li>  
+                  </ul>
+
+
+
+
+                      <a href ="#"><i class="fa fa-archive"></i>CEO<span></span></a>
+                      <ul class="nav">
+                      <li>
+                        <a class="" href="?page=dashboard_Manajemen">Hello CEO</a>
+                     <li>
+                        <a href="?page=rab_indexManajemen"><i class="fa fa-bank "></i>Rancangan Anggaran Biaya <span></span></a>
+                    </li>
+
+                    <li>
+                      <a href="?page=pengajuan_indexmanajemen"><i class="fa fa-archive"></i>Pengajuan<span></span></a>
+                      
+                    </li>
+
+                     <li>
+                        <a href="?page=pembeli_indexManajemen"><i class="fa fa-cart-plus "></i>Penanggung Jawab <span></span></a>
+                    </li>
+                    <li>
+                      <a href ="?page=barang_indexManajemen"><i class="fa fa-folder-open"></i>Data Barang<span></span></a>
+                    </li>      
+                  </ul>
+
+
+                    <li>
                     </li>
                 </ul>
 
