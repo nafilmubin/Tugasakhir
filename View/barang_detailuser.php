@@ -13,7 +13,7 @@ $data = mysqli_fetch_array($result);
 //audit trails
         date_default_timezone_set('Asia/Jakarta');
         $waktu          = date('Y-m-d H:i:s');
-        $content        = 'Admin Mengunjungi Detail Barang'; 
+        $content        = 'User Mengunjungi Detail Barang'; 
         $id_karyawan = $_SESSION['id_karyawan'];
         mysqli_query($koneksi, "INSERT INTO audit_trails(waktu,content,id_karyawan)values('$waktu', '$content', '$id_karyawan')"); 
 //	$nama_barang = $user_data['nama_barang'];

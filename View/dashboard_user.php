@@ -1,133 +1,54 @@
-<!--content-->
-        
-            <div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+    
+        <h1 class="page-head-line">Dashboard</h1>
+        <h1 class="page-subhead-line">Premium IOS, Android, and Website Development. Distinction On Technology.
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">Dashboard</h1>
-                        <h1 class="page-subhead-line">Premium IOS, Android, and Website Development. Distinction On Technology.
-                     </div> 
-                </div>
-                <!--<div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Rekap Techtalk Developer DOT</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                </div> -->
-
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-address-book fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">
-
-
-                                        </div>
-                                        <div>Calon Karyawan</div>
-                                    </div>
-                                </div>
-                            </div>
-                              <a href="?page=hrd_index">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green" style="background-color: #5cb85c; color:#fff">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-drivers-license fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">
-                                          
-
-
-                                        </div>
-                                        <div>Karyawan</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="?page=karyawan_index">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow" style="background-color: #f0ad4e; color:#fff">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">
-                                          
-
-                                        </div>
-                                        <div>Proyek</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="?page=tunjangan_index">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red" style="background-color: #d9534f; color:#fff">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">
-
-
-                                        </div>
-                                        <div> Barang</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="?page=barang_index">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    </div>
-      <div class="row">
-<div class="col-md-8">
-<div class="panel panel-default">
+    </div>
 </div>
+<!-- /. ROW  -->
+<div class="row">
+    <?php 
+    $id=$_SESSION['id_karyawan'];                                
+    $result = mysqli_query($koneksi, "SELECT SUM(lama) as izin from perizinan where id_karyawan='$id' AND id_kategori='KAT1'");
+    $data = mysqli_fetch_array($result);
+    ?>
+    <div class="col-md-4">
+        <div class="main-box mb-red">
+            <a href="#">
+                <h3><?php echo ( is_null($data['izin']) ) ? 0 : $data['izin']; ?></h3>
+                <h5>Izin</h5>
+            </a>
+        </div>
+    </div>
+    <?php                               
+    $result = mysqli_query($koneksi, "SELECT SUM(lama) as cuti from perizinan where id_karyawan='$id' AND id_kategori='KAT2'");
+    $data = mysqli_fetch_array($result);
+    ?>
+    <div class="col-md-4">
+        <div class="main-box mb-pink">
+            <a href="#">
+                <h3><?php echo ( is_null($data['cuti']) ) ? 0 : $data['cuti']; ?></h3>
+                <h5>Cuti</h5>
+            </a>
+        </div>
+    </div>
+    <?php                               
+    $result = mysqli_query($koneksi, "SELECT SUM(lama) as remote from perizinan where id_karyawan='$id' AND id_kategori='KAT3'");
+    $data = mysqli_fetch_array($result);
+    ?>
+    <div class="col-md-4">
+        <div class="main-box mb-dull">
+            <a href="#">
+                <h3><?php echo ( is_null($data['remote']) ) ? 0 : $data['remote']; ?></h3>
+                <h5>Remote</h5>
+            </a>
+        </div>
+    </div>
+
 </div>
-</div>
-     <div class="row">
+
+<div class="row">
 <div class="col-md-8">
 <div class="panel panel-default">
 
@@ -166,123 +87,49 @@
                     </div>
 
 <div class="col-md-4">
-    <!-- Categories techtalk -->
-            <div class="panel panel-warning">
-        <div class="panel-heading">
-           Job Vacancies
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table">
-                   
-                        <tr>
-                            <td>Frontend Developer</td>
-                            <td>Malang</td>
-                        </tr>
-                        <tr>
-                           <td>Backend Developer</td>
-                            <td>Malang</td>
-                        </tr>
-                        <tr>
-                           <td>Android Developer</td>
-                            <td>Malang</td>
-                        </tr>
-                        <tr>
-                           <td>iOS Developer</td>
-                            <td>Malang</td>
-                        </tr>
-                        <tr>
-                           <td>Project Manager</td>
-                            <td>Malang & Jakarta</td>
-                        </tr>
-                        <tr>
-                           <td>Designer</td>
-                            <td>Malang</td>
-                        </tr>
-                        <tr>
-                           <td>Quality Assurance</td>
-                            <td>Malang</td>
-                        </tr>
-                </table>
-            </div>     
-        </div>
-    </div>
-    
-</div>
-
-<div class="container-fluid">
-<div class="row">
-
-
-    <div class="col-md-8">
-
-    <div class="panel panel-success">
-        <div class="panel-heading">
-            Perizinan (Pending)
-        </div>
-        <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Tanggal Pengajuan</th>
-                            <th>Tanggal Mulai</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                   
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>     
-        </div>
-    </div>
-</div>
-
-
-<div class="col-md-4">
-                        <div class="panel panel-danger">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 Profile
+                                <a href="?page=karyawan_edit_self&id=<?php echo $_SESSION['id_karyawan'];?>">
+                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                </a>
                             </div>
                             <div class="panel-body">
-                               
+                                <?php
+                            $id_karyawan = $_SESSION['id_karyawan'];
+                            
+                            $karyawan = mysqli_query($koneksi,"select * from karyawan where id_karyawan='$id_karyawan'");
+                            $data=mysqli_fetch_array($karyawan);
+                            ?>
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
-                                        <th>Nafilul Mubin</th>
+                                        <th><?php echo $data['nama_karyawan']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>Username</th>
-                                        <th>nafil01</th>
+                                        <th><?php echo $data['username']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>Tempat Lahir</th>
-                                        <th>Malang</th>
+                                        <th><?php echo $data['tempat_lahir']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
-                                        <th>08/09/1997</th>
+                                        <th><?php echo $data['tanggal_lahir']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>Jenis Kelamin</th>
-                                        <th>Laki-Laki</th>
+                                        <th><?php echo $data['jenis_kelamin']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>No HP</th>
-                                        <th>082228246124</th>
+                                        <th><?php echo $data['no_hp']; ?></th>
                                     </tr>
                                     <tr>
                                         <th>Alamat</th>
-                                        <th>Jalan Akordion V/134</th>
+                                        <th><?php echo $data['alamat']; ?></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -290,6 +137,89 @@
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
-      </div>
+
+                <div class="col-md-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                History Gaji
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tanggal</th>
+                                                <th>Gaji Pokok</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                         
+                                        $result = mysqli_query($koneksi, "SELECT gaji_karyawan.*, gaji_pokok.gaji from gaji_karyawan join gaji_pokok on gaji_pokok.id_gajipokok = gaji_karyawan.id_gajipokok where gaji_karyawan.id_karyawan='$id' order by gaji_karyawan.tanggal_periode desc");
+
+                                                while($data = mysqli_fetch_array($result)) {   
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $data['tanggal_periode'] ?></td>
+                                                <td><?php echo 'Rp.'.number_format($data['gaji'], 0, '.', '.') ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                <h3>Absen </h3>
+                    <h5 class="page-head-line"></h5>
+
+                    <div class=" margin-top-niken col-md-12"> 
+                    <?php
+                    $id_karyawan = $_SESSION['id_karyawan'];
+                    $tanggal_absen = date('Y-m-d');
+                    $absen = mysqli_query($koneksi,"select * from absensi where id_karyawan='$id_karyawan' and tanggal_absen='$tanggal_absen' limit 1");
+                    if (mysqli_num_rows($absen) > 0){ 
+                    $data=mysqli_fetch_array($absen);
+                    
+                    date_default_timezone_set('Asia/Jakarta');
+                    $d1=new DateTime( $data['tanggal_absen'].' '.$data['jam_datang']); 
+                    $d2=new DateTime( date('Y-m-d H:i:s')); 
+                    $diff=$d2->diff($d1); 
+
+                        if( $diff->h < 8 ) {
+                        ?>
+                        <a href="#">
+                            <button class="btn btn-primary" disabled><i class="fa fa-sign-out"></i> Checkout</button>
+                        </a>
+                        <?php }else{ ?>
+                        <a href="?page=absensi_pulang&id=<?php echo $data['cd'];?>">
+                            <button class="btn btn-primary"><i class="fa fa-sign-out"></i> Checkout</button>
+                        </a>
+                        <?php } ?>
+
+                    <?php }else{ 
+                        date_default_timezone_set('Asia/Jakarta');
+                        $jamSekarang=new DateTime( date('Y-m-d H:i:s')); 
+                        $batasAbsen=new DateTime( date('Y-m-d 09:00:00')); 
+
+                        //var_dump($jamSekarang > $batasAbsen);
+                        if( $jamSekarang > $batasAbsen ){
+                        ?>
+                        <a href="#">
+                            <button class="btn btn-primary disabled"><i class="fa fa-check"></i> Absen</button>
+                        </a>
+                        <?php }else{ ?>
+                        <a href="?page=absensi_harian">
+                        <button class="btn btn-primary"><i class="fa fa-check"></i> Absen</button>
+                    </a> 
+
+                    
+                    <?php 
+                        } 
+                    }
+                    ?>
+                </div>
+                </div>

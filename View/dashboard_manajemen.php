@@ -147,6 +147,10 @@
                             <td><h4>0 Dokumen RAB Menunggu Disetujui </h4></td>
                             <td align="right"><button type="submit" name="submit" class="btn btn-warning">Lihat Detail </button></td>
                         </tr>
+                         <tr>
+                            <td><h4>0 Dokumen Pengajuan Menunggu Disetujui </h4></td>
+                            <td align="right"><button type="submit" name="submit" class="btn btn-warning">Lihat Detail </button></td>
+                        </tr>
                         
                 </table>
             </div>     
