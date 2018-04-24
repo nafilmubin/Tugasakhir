@@ -42,46 +42,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php
-                                     
-                                    // Fetch all users data from database
-                                    //$result = mysqli_query($koneksi, "SELECT * FROM pengajuan ORDER BY id_pengajuan DESC");
-                                    //iner join 
-                                     //iner join
-                                    $result = mysqli_query($koneksi, "SELECT pengajuan.*, karyawan.nama_karyawan, jenis_pengajuan.nama_jenispengajuan FROM pengajuan join karyawan on karyawan.id_karyawan=pengajuan.id_karyawan join jenis_pengajuan on jenis_pengajuan.id_jenispengajuan=pengajuan.id_jenispengajuan ");
-
-                                    //searching
-                                    if( isset($_POST['search']) ){
-                                          $key=$_POST['search'];
-                                           $result = mysqli_query($koneksi, "SELECT pengajuan.*, karyawan.nama_karyawan, jenis_pengajuan.nama_jenispengajuan, rab.nama_rab FROM pengajuan join karyawan on karyawan.id_karyawan=pengajuan.id_karyawan join jenis_pengajuan on jenis_pengajuan.id_jenispengajuan=pengajuan.id_jenispengajuan join rab on rab.id_rab=pengajuan.id_rab WHERE karyawan.nama_karyawan LIKE '%$key%' ORDER BY pengajuan.id_karyawan DESC ");
-                                          
-                                          //$result = mysqli_query($koneksi, "SELECT pengajuan.*, karyawan.nama_karyawan FROM pengajuan join karyawan on pengajuan.id_karyawan=karyawan.id_karyawan WHERE karyawan.nama_karyawan LIKE '%$key%' ORDER BY pengajuan.id_karyawan DESC");
-                                      }
-                                      
-                                      while($user_data = mysqli_fetch_array($result)) {   
-                                        //var_dump($result);
-                                        //die()
-                                    ?>
                                         <tr>
-                                            <td><?php echo $user_data['id_pengajuan'] ?></td>
-                                            <td><?php echo $user_data['nama_karyawan'] ?></td>
-                                            <td><?php echo $user_data['nama_jenispengajuan'] ?></td>
-                                            <td><?php echo $user_data['nama_pengajuan'] ?></td>
-                                            <td><?php echo $user_data['biaya'] ?></td>
+                                            <td>PEN01</td>
+                                            <td>Richa Elek</td>
+                                            <td>Proyek</td>
+                                            <td>Emas kawin</td>
+                                            <td>2.000.000,-</td>
                     
                                             <td>
-                                                <a href="?page=pengajuan_detail&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                <a href="?page=pengajuan_detail">
                                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>
                                                 </a>
-                                                <a href="?page=pengajuan_edit&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                <a href="?page=pengajuan_edit">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
                                                 </a>
-                                                <a href="?page=pengajuan_delete&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                <a href="?page=pengajuan_delete">
                                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
-                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

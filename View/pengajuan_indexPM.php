@@ -29,11 +29,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                        2
 
                                         </div>
                                         <div><h4>Approved</h4></div>
@@ -58,11 +54,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                          3
 
                                         </div>
                                         <div><h4>Pending</h4></div>
@@ -87,12 +79,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
-
+                                        5
                                         </div>
                                         <div><h4>Rejected</h4></div>
                                     </div>
@@ -137,13 +124,13 @@
                                             <td>KPI-Online </td>
                                             <td>Belum disetujui </td>
                                             <td>
-                                                 <a href="?page=pengajuan_detailPM&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                 <a href="?page=pengajuan_detailPM">
                                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>
                                                 </a>
-                                                <a href="?page=pengajuan_editPM&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                <a href="?page=pengajuan_editPM">
                                                     <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
                                                 </a>
-                                                <a href="?page=pengajuan_deletePM&id=<?php echo $user_data['id_pengajuan'];?>">
+                                                <a href="?page=pengajuan_deletePM">
                                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>

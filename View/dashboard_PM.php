@@ -28,11 +28,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                         2
 
                                         </div>
                                         <div>Calon Karyawan</div>
@@ -57,11 +53,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                           <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `karyawan`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                           5
 
 
                                         </div>
@@ -87,11 +79,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                           <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `proyek`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                          3
 
                                         </div>
                                         <div>Proyek</div>
@@ -116,12 +104,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                            <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `barang`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
-
+                                            6
                                         </div>
                                         <div> Barang</div>
                                     </div>
@@ -243,19 +226,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
-                     
-                    $result = mysqli_query($koneksi, "SELECT perizinan.*, karyawan.nama_karyawan, kategori_perizinan.kategori FROM perizinan join karyawan on perizinan.id_karyawan=karyawan.id_karyawan join kategori_perizinan on kategori_perizinan.id_kategori=perizinan.id_kategori where perizinan.status = 'pending' ORDER BY perizinan.idp DESC");
-
-                            while($data = mysqli_fetch_array($result)) {   
-                        ?>
                         <tr>
-                            <td><?php echo $data['nama_karyawan'] ?></td>
-                            <td><?php echo $data['tanggal_pengajuan'] ?></td>
-                            <td><?php echo $data['tanggal_mulai'] ?></td>
-                            <td><?php echo $data['status'] ?></td>
+                             <td>Nafilul</td>
+                            <td>12 Juni 2018</td>
+                            <td>14 Juli 2018</td>
+                            <td>Sah</td>
                         </tr>
-                    <?php } ?>
+                   
                     </tbody>
                 </table>
             </div>     
@@ -270,41 +247,35 @@
                                 Profile
                             </div>
                             <div class="panel-body">
-                                <?php
-                            $id_karyawan = $_SESSION['id_karyawan'];
-                            
-                            $karyawan = mysqli_query($koneksi,"select * from karyawan where id_karyawan='$id_karyawan'");
-                            $data=mysqli_fetch_array($karyawan);
-                            ?>
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
-                                        <th><?php echo $data['nama_karyawan']; ?></th>
+                                        <th>Nafilul Mubin</th>
                                     </tr>
                                     <tr>
                                         <th>Username</th>
-                                        <th><?php echo $data['username']; ?></th>
+                                        <th>mnafilul@gmail.com</th>
                                     </tr>
                                     <tr>
                                         <th>Tempat Lahir</th>
-                                        <th><?php echo $data['tempat_lahir']; ?></th>
+                                        <th>Malang</th>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
-                                        <th><?php echo $data['tanggal_lahir']; ?></th>
+                                        <th>08 September 2017</th>
                                     </tr>
                                     <tr>
                                         <th>Jenis Kelamin</th>
-                                        <th><?php echo $data['jenis_kelamin']; ?></th>
+                                        <th>Laki-laki</th>
                                     </tr>
                                     <tr>
                                         <th>No HP</th>
-                                        <th><?php echo $data['no_hp']; ?></th>
+                                        <th>085655580017</th>
                                     </tr>
                                     <tr>
                                         <th>Alamat</th>
-                                        <th><?php echo $data['alamat']; ?></th>
+                                        <th>Jalan Akordion V 134</th>
                                     </tr>
                                 </thead>
                             </table>

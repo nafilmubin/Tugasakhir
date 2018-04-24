@@ -29,11 +29,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                          3
 
                                         </div>
                                         <div><h4>Approved</h4></div>
@@ -58,11 +54,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
+                                          5
 
                                         </div>
                                         <div><h4>Pending</h4></div>
@@ -87,12 +79,7 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
-                                          <?php
-                                          $result = $koneksi->query("SELECT COUNT(*) FROM `calonkaryawanbaru`");
-                                            $row = $result->fetch_row();
-                                            echo 'Data: ', $row[0];
-                                            ?>
-
+                                          5
                                         </div>
                                         <div><h4>Rejected</h4></div>
                                     </div>

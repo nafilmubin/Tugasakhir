@@ -129,35 +129,7 @@
 
                     </li>
                     <li>
-                        <a href="?page=dashboard_manajemen"><i class="fa fa-dashboard "></i>Dashboard<span></span></a>
-                    </li>
-                   
-                    <li>
-                      <a href ="#"><i class="fa fa-archive"></i>Manajemen Proyek<span></span></a>
-                      <ul class="nav">
-                            <li>
-                                 <a href="?page=perencanaan">Perencanaan <span></span></a>
-                            </li>
-                            <li>
-                                 <a href="?page=progress_index">Progress<span></span></a>
-                            </li>
-                             <li>
-                                 <a href="?page=evaluasi_index">Evaluasi <span></span></a>
-                            </li>
-                            <li>
-                                 <a href="?page=peminjaman_index">Garansi<span></span></a>
-                             </li>
-                            <li>
-                                 <a href="?page=dokumen_index">Dokumentasi Proyek<span></span></a>
-                            </li>
-                            <li>
-                                 <a href="?page=pm_index">Tim <span></span></a>
-                            </li>
-                             <li>
-                                 <a href="?page=barang">Barang <span></span></a>
-                            </li>
-
-                      </ul>
+                        <a href="?page=dashboard"><i class="fa fa-dashboard "></i>Dashboard<span></span></a>
                     </li>
                     <li>
                       <a href ="#"><i class="fa fa-user"></i>Admin<span></span></a>
@@ -201,8 +173,11 @@
                             <a href ="?page=perencanaan">Perencanaan Proyek<span></span></a>
                           </li>
                           <li>
-                            <a href ="?page=progress_index">Progress Proyek<span></span></a>
-                          </li>                 
+                            <a href ="?page=progress_indexpm">Progress Proyek<span></span></a>
+                          </li> 
+                          <li>
+                            <a href="?page=dokumen_index">Dokumentasi Proyek<span></span></a>
+                          </li>                
                       </ul>
                     </li>
                     <li>
@@ -226,7 +201,10 @@
                           </li> 
                           <li>
                             <a href ="?page=progress_index">Progress Proyek<span></span></a>
-                          </li>      
+                          </li>
+                           <li>
+                            <a href="?page=dokumen_index">Dokumentasi Proyek<span></span></a>
+                          </li>       
                       </ul>
                     </li>
                     <li>
@@ -250,11 +228,14 @@
                             <a href ="?page=pm_index">Proyek<span></span></a>
                           </li>
                           <li>
-                            <a href ="?page=progress_index">Progress Proyek<span></span></a>
+                            <a href ="?page=progress_indexpm">Progress Proyek<span></span></a>
                           </li>
                           <li>
                             <a href ="?page=perencanaan">Perencanaan Proyek<span></span></a>
-                          </li>          
+                          </li>
+                           <li>
+                            <a href="?page=dokumen_index">Dokumentasi Proyek<span></span></a>
+                          </li>           
                       </ul>
                     </li>    
                 </ul>
@@ -400,6 +381,33 @@
       $('#add').click(function(){  
            i++;  
            $('#dynamic_field').append('<tr id="row'+i+'"> <td><input type="text" name="nama_karyawan[]" placeholder="Nama Karyawan" class="form-control name_list" /></td><td><input type="text" name="jabatan[]" placeholder="Jabatan" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+      });  
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });  
+      $('#submit').click(function(){            
+           $.ajax({  
+                url:"name.php",  
+                method:"POST",  
+                data:$('#add_name').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+      });  
+ });  
+</script>
+<script>
+               
+                     
+ $(document).ready(function(){  
+      var i=1;  
+      $('#addmodul').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<tr id="row'+i+'"> <td><input type="text" name="nama" placeholder="Modul" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
       });  
       $(document).on('click', '.btn_remove', function(){  
            var button_id = $(this).attr("id");   

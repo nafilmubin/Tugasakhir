@@ -8,39 +8,29 @@
 </div>
 <!-- /. ROW  -->
 <div class="row">
-    <?php 
-    $id=$_SESSION['id_karyawan'];                                
-    $result = mysqli_query($koneksi, "SELECT SUM(lama) as izin from perizinan where id_karyawan='$id' AND id_kategori='KAT1'");
-    $data = mysqli_fetch_array($result);
-    ?>
+   
     <div class="col-md-4">
         <div class="main-box mb-red">
             <a href="#">
-                <h3><?php echo ( is_null($data['izin']) ) ? 0 : $data['izin']; ?></h3>
+                <h3>2</h3>
                 <h5>Izin</h5>
             </a>
         </div>
     </div>
-    <?php                               
-    $result = mysqli_query($koneksi, "SELECT SUM(lama) as cuti from perizinan where id_karyawan='$id' AND id_kategori='KAT2'");
-    $data = mysqli_fetch_array($result);
-    ?>
+   
     <div class="col-md-4">
         <div class="main-box mb-pink">
             <a href="#">
-                <h3><?php echo ( is_null($data['cuti']) ) ? 0 : $data['cuti']; ?></h3>
+                <h3>4</h3>
                 <h5>Cuti</h5>
             </a>
         </div>
     </div>
-    <?php                               
-    $result = mysqli_query($koneksi, "SELECT SUM(lama) as remote from perizinan where id_karyawan='$id' AND id_kategori='KAT3'");
-    $data = mysqli_fetch_array($result);
-    ?>
+    
     <div class="col-md-4">
         <div class="main-box mb-dull">
             <a href="#">
-                <h3><?php echo ( is_null($data['remote']) ) ? 0 : $data['remote']; ?></h3>
+                <h3>3</h3>
                 <h5>Remote</h5>
             </a>
         </div>
@@ -95,41 +85,36 @@
                                 </a>
                             </div>
                             <div class="panel-body">
-                                <?php
-                            $id_karyawan = $_SESSION['id_karyawan'];
-                            
-                            $karyawan = mysqli_query($koneksi,"select * from karyawan where id_karyawan='$id_karyawan'");
-                            $data=mysqli_fetch_array($karyawan);
-                            ?>
+                              
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
-                                        <th><?php echo $data['nama_karyawan']; ?></th>
+                                        <th>Nafilul Mubin</th>
                                     </tr>
                                     <tr>
                                         <th>Username</th>
-                                        <th><?php echo $data['username']; ?></th>
+                                        <th>mnafilul@gmail.com</th>
                                     </tr>
                                     <tr>
                                         <th>Tempat Lahir</th>
-                                        <th><?php echo $data['tempat_lahir']; ?></th>
+                                        <th>Malang</th>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
-                                        <th><?php echo $data['tanggal_lahir']; ?></th>
+                                        <th>08 September 2017</th>
                                     </tr>
                                     <tr>
                                         <th>Jenis Kelamin</th>
-                                        <th><?php echo $data['jenis_kelamin']; ?></th>
+                                        <th>Laki-laki</th>
                                     </tr>
                                     <tr>
                                         <th>No HP</th>
-                                        <th><?php echo $data['no_hp']; ?></th>
+                                        <th>085655580017</th>
                                     </tr>
                                     <tr>
                                         <th>Alamat</th>
-                                        <th><?php echo $data['alamat']; ?></th>
+                                        <th>Jalan Akordion V 134</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -153,17 +138,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                         
-                                        $result = mysqli_query($koneksi, "SELECT gaji_karyawan.*, gaji_pokok.gaji from gaji_karyawan join gaji_pokok on gaji_pokok.id_gajipokok = gaji_karyawan.id_gajipokok where gaji_karyawan.id_karyawan='$id' order by gaji_karyawan.tanggal_periode desc");
-
-                                                while($data = mysqli_fetch_array($result)) {   
-                                            ?>
+                                        
                                             <tr>
-                                                <td><?php echo $data['tanggal_periode'] ?></td>
-                                                <td><?php echo 'Rp.'.number_format($data['gaji'], 0, '.', '.') ?></td>
+                                                <td>11 Oktober 2018</td>
+                                                <td>12.000.000,00</td>
                                             </tr>
-                                        <?php } ?>
+                                       
                                         </tbody>
                                     </table>
                                 </div>     
@@ -177,49 +157,11 @@
                     <h5 class="page-head-line"></h5>
 
                     <div class=" margin-top-niken col-md-12"> 
-                    <?php
-                    $id_karyawan = $_SESSION['id_karyawan'];
-                    $tanggal_absen = date('Y-m-d');
-                    $absen = mysqli_query($koneksi,"select * from absensi where id_karyawan='$id_karyawan' and tanggal_absen='$tanggal_absen' limit 1");
-                    if (mysqli_num_rows($absen) > 0){ 
-                    $data=mysqli_fetch_array($absen);
-                    
-                    date_default_timezone_set('Asia/Jakarta');
-                    $d1=new DateTime( $data['tanggal_absen'].' '.$data['jam_datang']); 
-                    $d2=new DateTime( date('Y-m-d H:i:s')); 
-                    $diff=$d2->diff($d1); 
-
-                        if( $diff->h < 8 ) {
-                        ?>
-                        <a href="#">
-                            <button class="btn btn-primary" disabled><i class="fa fa-sign-out"></i> Checkout</button>
-                        </a>
-                        <?php }else{ ?>
-                        <a href="?page=absensi_pulang&id=<?php echo $data['cd'];?>">
-                            <button class="btn btn-primary"><i class="fa fa-sign-out"></i> Checkout</button>
-                        </a>
-                        <?php } ?>
-
-                    <?php }else{ 
-                        date_default_timezone_set('Asia/Jakarta');
-                        $jamSekarang=new DateTime( date('Y-m-d H:i:s')); 
-                        $batasAbsen=new DateTime( date('Y-m-d 09:00:00')); 
-
-                        //var_dump($jamSekarang > $batasAbsen);
-                        if( $jamSekarang > $batasAbsen ){
-                        ?>
-                        <a href="#">
-                            <button class="btn btn-primary disabled"><i class="fa fa-check"></i> Absen</button>
-                        </a>
-                        <?php }else{ ?>
                         <a href="?page=absensi_harian">
                         <button class="btn btn-primary"><i class="fa fa-check"></i> Absen</button>
                     </a> 
 
                     
-                    <?php 
-                        } 
-                    }
-                    ?>
+                   
                 </div>
                 </div>

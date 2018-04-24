@@ -11,15 +11,15 @@
                                 <button type="submit" name="submit" class="btn btn-info col-md-2">Pilih</button>
                             </form>
                     </div>
-                         <!--    Context Classes  -->
+                          <!--    Context Classes  -->
                        <div class="col-md-5">  
-                            <a href="?page=progress_create">
-                            <button class="btn btn-primary col-md-offset-9"><i class="fa fa-plus"></i> Tambah Data</button>
+                            <a href="?page=pengajuan_create">
+                            <button class="btn btn-primary col-md-offset-5"><i class="fa fa-plus"></i> Tambah Data</button>
                             </a>
-                          <!--   <a href="views/perencanaan_export.php" target="blank">
-                                <button class="btn btn-primary"><i class="fa fa-download"></i> Export Excel</button>
-                            </a>       -->
-                    </div>
+                            <a href="?page=audit_index" target="blank">
+                                <button class="btn btn-warning"><i class="fa fa-tasks"></i> History</button>
+                            </a>      
+                        </div>
 
         </div>
 
@@ -41,6 +41,8 @@
                                             <th>Proyek</th>
                                             <th>Nama Fitur</th>
                                             <th>Prosentase</th>
+                                            <th>Checklist</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,6 +54,19 @@
                                                   </div>
                                                 </div>
                                             </td>
+                                             <td>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                                </a>
+                                                <a href="?page=dokumen_delete&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                                </a>
+                                            </td> 
                                         </tr>
                                         <tr>
                                             <td>SMI</td>
@@ -61,7 +76,19 @@
                                                   </div>
                                                 </div>
                                             </td>
-                                           
+                                            <td>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                                </a>
+                                                <a href="?page=dokumen_delete&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                                </a>
+                                            </td> 
                                         </tr>
                                     </tbody>
                                 </table>
