@@ -31,27 +31,28 @@
                                             
                                             <th>Nama Proyek</th>
                                             <th>Manajer Proyek</th>
-                                            <th>Progress</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                    foreach($db->tampil_data() as $x){
+                                    ?>
                                         <tr>
                                            
-                                            <td>SMI</td>
-                                            <td>Mbak Nisa</td>
-                                            <td>0 %</td>
+                                            <td><?php echo $x['nama_proyek'] ?></td>
+                                            <td><?php echo $x['id_karyawan'] ?></td>
                                             <td>
                                                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal">
                                                         <i class="fa fa-pencil"></i>
                                                     </button>
                                                 
-                                                <a href="?page=proyek_delete&id=<?php echo $x['id_proyek'];?>">
+                                                <a href="?page=pm_delete&id=<?php echo $x['id_proyek'];?>">
                                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
-                                  
+                                    <?php }  ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -72,22 +73,26 @@
                       </div>
                       <div class="modal-body">
                         <form role="form" name="autosumform" method="POST">
-                              <div class="form-group">
+                          <?php
+                          foreach($db->edit($_GET['id']) as $d){
+                          ?>
+                                <div class="form-group">
+                                    <label>ID Proyek</label>
+                                    <input class="form-control" type="text" name="id_proyek" value="<?php echo $d['id']?>">
+                                </div>
+                                <div class="form-group">
                                     <label>Proyek</label>
-                                    <input class="form-control" type="text" name="id_proyek">
+                                    <input class="form-control" type="text" name="nama_proyek" value="<?php echo $d['nama_proyek']?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Manajer Proyek</label>
-                                    <select class="form-control" name="pm">
-                                       <option>Mbak Nisa</option>
-                                       <option>Inul</option>
-                                       <option>Mbak Putri</option>
-                                    </select>
+                                    <input class="form-control" type="text" name="id_karyawan" value="<?php echo $d['id_karyawan']?>"> >
                                 </div>
+                          <?php } ?>
                         </form>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" name="submit" class="btn btn-info">Submit </button>
                       </div>
                     </div>
 

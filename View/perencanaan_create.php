@@ -1,9 +1,9 @@
 <div class="col-md-12 col-sm-6 col-xs-12">
 <div class="btn-group btn-group-justified">
-  <a href="?page=perencanaan_create" class="btn btn-default">Detail Proyek</a>
-  <a href="?page=tim_create" class="btn btn-primary">Tim</a>
-  <a href="?page=jadwal" class="btn btn-primary">Penjadwalan</a>
-  <a href="#" class="btn btn-primary">Biaya</a>
+  <a href="?page=perencanaan_create" class="btn btn-default"><span class="badge">1</span>&nbspDetail Proyek</a>
+  <a href="?page=tim_create" class="btn btn-primary"><span class="badge">2</span>&nbspTim</a>
+  <a href="?page=jadwal" class="btn btn-primary"><span class="badge">3</span>&nbspPenjadwalan</a>
+  <a href="#" class="btn btn-primary"><span class="badge">4</span>&nbspBiaya</a>
 </div>
     <div class="panel panel-info">
         <div class="panel-heading">

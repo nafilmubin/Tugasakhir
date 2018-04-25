@@ -1,3 +1,8 @@
+<?php
+// Create database connection using config file
+include 'src/Domain/proyek_model.php';
+$db = new Proyek();
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

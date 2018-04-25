@@ -20,7 +20,7 @@
         </div>
         
                  <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="row">
@@ -45,7 +45,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <div class="row">
@@ -70,7 +70,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
                                 <div class="row">
@@ -106,7 +106,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="tabel_audit" class="table table-bordered table-hover table-striped">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
@@ -121,7 +121,9 @@
                                             <td>1. </td>
                                             <td>Ahmad Fatoni</td>
                                             <td>KPI-Online </td>
-                                            <td>Belum disetujui </td>
+                                            <td> 
+                                                <span class="label label-danger">Belum Disetujui</span> 
+                                            </td>
                                             <td>
                                                  <a href="?page=pengajuan_detailuser&id=<?php echo $user_data['id_pengajuan'];?>">
                                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>

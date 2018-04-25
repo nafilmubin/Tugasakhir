@@ -31,7 +31,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="tabel_audit" class="table table-bordered table-hover table-striped">
                                     <thead>
                                         <tr>
                                             <th>Kode RAB</th>
@@ -47,7 +47,7 @@
                                             <td>SMI</td>
                                             <td>Fatoni</td>
                                             <td>
-                                                <span class='badge badge-success'>Disetujui</span>
+                                                <span class="label label-success">Disetujui</span>
                                             </td>
                                             <td>
                                                 <a href="?page=rab_detail&id=<?php echo $user_data['id_rab'];?>">

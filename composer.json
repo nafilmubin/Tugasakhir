@@ -1,0 +1,17 @@
+{
+    "name": "nafil/sistem",
+    "description": "this is a system",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nafilmubin",
+            "email": "mnafilul@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sistem\\": "src"
+        }
+    
+}

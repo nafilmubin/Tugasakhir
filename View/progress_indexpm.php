@@ -16,8 +16,8 @@
                             <a href="?page=pengajuan_create">
                             <button class="btn btn-primary col-md-offset-5"><i class="fa fa-plus"></i> Tambah Data</button>
                             </a>
-                            <a href="?page=audit_index" target="blank">
-                                <button class="btn btn-warning"><i class="fa fa-tasks"></i> History</button>
+                            <a href="?page=audit_index">
+                            <button class="btn btn-warning"><i class="fa fa-tasks"></i> History</button>
                             </a>      
                         </div>
 

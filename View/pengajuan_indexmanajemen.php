@@ -38,7 +38,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="tabel_audit" class="table table-bordered table-hover table-striped">
                                     <thead>
                                         <tr>
                                             <th> </th>
@@ -55,7 +55,9 @@
                                             <td>1. </td>
                                             <td>Ahmad Fatoni</td>
                                             <td>KPI-Online </td>
-                                            <td>Belum disetujui </td>
+                                            <td>
+                                               <span class="label label-danger">Belum Disetujui</span> 
+                                            </td>
                                             <td>
                                                  <a href="?page=pengajuan_detailmanajemen&id=<?php echo $user_data['id_pengajuan'];?>">
                                                     <button class="btn btn-primary"><i class="fa fa-search"></i></button>
