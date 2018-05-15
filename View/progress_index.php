@@ -13,9 +13,7 @@
                     </div>
                          <!--    Context Classes  -->
                        <div class="col-md-5">  
-                            <a href="?page=progress_create">
-                            <button class="btn btn-primary col-md-offset-9"><i class="fa fa-plus"></i> Tambah Data</button>
-                            </a>
+                           
                           <!--   <a href="views/perencanaan_export.php" target="blank">
                                 <button class="btn btn-primary"><i class="fa fa-download"></i> Export Excel</button>
                             </a>       -->

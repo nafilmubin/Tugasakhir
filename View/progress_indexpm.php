@@ -12,14 +12,14 @@
                             </form>
                     </div>
                           <!--    Context Classes  -->
-                       <div class="col-md-5">  
-                            <a href="?page=pengajuan_create">
-                            <button class="btn btn-primary col-md-offset-5"><i class="fa fa-plus"></i> Tambah Data</button>
-                            </a>
+                      <div class="col-md-5">  
                             <a href="?page=audit_index">
-                            <button class="btn btn-warning"><i class="fa fa-tasks"></i> History</button>
-                            </a>      
-                        </div>
+                            <button class="btn btn-warning col-md-offset-9"><i class="fa fa-area-chart"></i> History</button>
+                            </a>
+                          <!--   <a href="views/perencanaan_export.php" target="blank">
+                                <button class="btn btn-primary"><i class="fa fa-download"></i> Export Excel</button>
+                            </a>       -->
+                    </div>
 
         </div>
 
@@ -60,8 +60,11 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                <a href="?page=fitur_create">
+                                                    <button class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                                                </a>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
-                                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                                                 </a>
                                                 <a href="?page=dokumen_delete&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
@@ -83,7 +86,10 @@
                                             </td>
                                             <td>
                                                 <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
-                                                    <button class="btn btn-info"><i class="fa fa-pencil"></i></button>
+                                                    <button class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                                                </a>
+                                                <a href="?page=dokumen_edit&id=<?php echo $user_data['id_dokumen'];?>">
+                                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                                                 </a>
                                                 <a href="?page=dokumen_delete&id=<?php echo $user_data['id_dokumen'];?>">
                                                     <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

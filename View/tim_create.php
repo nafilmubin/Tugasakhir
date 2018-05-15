@@ -17,7 +17,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dynamic_field">
                             <tr>
-                                <td><input type="text" name="nama_anggaran[]" placeholder="Nama Karyawan" class="form-control name_list" /></td>
+                                <td><input type="text" name="nama_karyawan[]" placeholder="Nama Karyawan" class="form-control name_list" /></td>
                                 <td><input type="text" readonly="readonly" name="jabatan[]" placeholder="Jabatan" class="form-control name_list" /></td>
                                 <td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td>
                             </tr>
@@ -36,6 +36,33 @@
 </div>
 </section>
 
+ <script>
+               
+                     
+ $(document).ready(function(){  
+      var i=1;  
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field1').append('<tr id="row'+i+'"> <td><input type="text" name="nama_karyawan[]" placeholder="Nama Karyawan" class="form-control name_list" /></td><td><input type="text" name="jabatan[]" placeholder="Jabatan" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+      });  
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });  
+      $('#submit').click(function(){            
+           $.ajax({  
+                url:"name.php",  
+                method:"POST",  
+                data:$('#add_name').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+      });  
+ });  
+            </script>
 
     
   

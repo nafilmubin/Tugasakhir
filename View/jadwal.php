@@ -7,11 +7,31 @@
 </div>
     <div class="panel panel-info">
         <div class="panel-heading">
-           <b>PENJADWALAN</b>
+           <b>Penjadwalan</b>
         </div>
-
     <div class="panel-body">
-  <div id="chart_div"></div>
+        <form role="form" name="autosumform" method="POST" action="src/Infrastruktur/proyek.php?aksi=tambah">
+                    <div class="form-group">
+                        <label>Fitur</label>
+                        <input class="form-control" type="text" name="id_proyek">
+                    </div>
+                  <div class="form-group">
+                        <label>Tanggal Mulai</label>
+                        <input class="form-control" type="text" name="nama_proyek">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Selesai</label>
+                        <input class="form-control" type="text" name="id_karyawan">
+                    </div>  
+                </form>
+        </div>
+    </div>
+</div>
+</section>
+    
+  
+
+
   <br>
                     <button type="submit" name="submit" class="btn btn-info">Next </button>
                     <a onclick="window.history.back();return false;" class="btn btn-warning">Previous</a>

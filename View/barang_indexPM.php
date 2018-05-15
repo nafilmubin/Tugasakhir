@@ -1,3 +1,7 @@
+ <?php
+ require 'src/Domain/barang_model.php';
+ $db = new Barang();
+ ?>
 <div class="header col-md-12" style="margin-top: 15px;">
                     <div class="col-md-7">
                             <form role="form" method="POST" action="?page=barang_indexPM">

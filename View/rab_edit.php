@@ -1,111 +1,125 @@
+<?php 
+$jml = 0;
+ ?>
 <?php
-// include database connection file
-//include_once("config.php");
-
-// Check if form is submitted for user update, then redirect to homepage after update
-if(isset($_POST['submit']))
-{   
-        $id_rab = $_GET['id'];
-        $nama_rab = $_POST['nama_rab'];
-        $id_proyek = $_POST['id_proyek'];
-        $id_karyawan = $_POST['id_karyawan'];
-
-      if( isset($_FILES['attachment'])){
-        $uploaddokumen       = $_FILES['attachment']['name'];
-        $file_tmp            = $_FILES['attachment']['tmp_name'];  
-        $upload              = move_uploaded_file($file_tmp, 'images/'.$uploaddokumen);
-    }else{
-        $uploadfoto = $_POST['old_foto'];
-    }
-
-        $periode = $_POST['periode'];
-        $keterangan = $_POST['keterangan'];
-       
-        
-    // update user data
-    $result = mysqli_query($koneksi, "UPDATE rab SET nama_rab='$nama_rab',id_proyek='$id_proyek',id_karyawan='id_karyawan',attachment='$attachment',periode='$periode',keterangan='$keterangan' WHERE id_rab='$id_rab'");
-    ?>
-    
-    <script>
-                alert("Data RAB Berhasil Diperbarui ");
-                location="?page=rab_index";
-            </script>
-
-    <?php
-}
+require 'src/Domain/rab_model.php';
+$db = new RAB();
 ?>
-<?php
-// Display selected user data based on id
-// Getting id from url
-$id_rab = $_GET['id'];
-// Fetech user data based on id
-$result = mysqli_query($koneksi, "SELECT rab.*, proyek.nama_proyek, karyawan.nama_karyawan FROM rab join proyek on proyek.id_proyek=rab.id_proyek join karyawan on karyawan.id_karyawan=rab.id_karyawan  WHERE id_rab = '$id_rab' ");
-
-$data = mysqli_fetch_array($result);
-//while($user_data = mysqli_fetch_array($result))
-//{
-//  $nama_karyawan = $user_data['nama_karyawan'];
-//  $tempat_lahir = $user_data['tempat_lahir'];
-//}
-?>
-
-<div class="col-md-6 col-sm-6 col-xs-12">
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="col-md-12 col-sm-6 col-xs-12">
     <div class="panel panel-info">
         <div class="panel-heading">
            <b>DATA RAB</b>
         </div>
     <div class="panel-body">
-        <form role="form" method="POST">
-                    <div class="form-group">
+        <form role="form" method="POST" enctype="multipart/form-data" action="src/Infrastruktur/RAB.php?aksi=update">
+                   <?php
+                   foreach($db->edit($_GET['id']) as $data){
+                    ?>
+                   
+                   <div class="form-group">
                         <label>ID RAB</label>
-                        <input class="form-control" type="text" readonly="readonly" name="id_rab" value="<?php echo $data['id_rab']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama RAB</label>
-                        <input class="form-control" type="text" name="nama_rab" value="<?php echo $data['nama_rab']; ?>">
+                        <input class="form-control" readonly="true" value="<?php echo $data['id_rab'] ?>" type="text" name="id_rab" >
                     </div>
                     <div class="form-group">
                         <label>Proyek</label>
-                        <select class="form-control" name="id_proyek">
-                        <?php
-                        $result = mysqli_query($koneksi, "SELECT * FROM proyek ORDER BY nama_proyek ASC");
-                          
-                            while($datarab = mysqli_fetch_array($result)) {   
-                        ?>
-                        <option value="<?php echo $datarab['id_proyek']; ?>" <?php echo ( $datarab['id_proyek'] == $data['id_proyek']) ? 'selected' : ''; ?>><?php echo $datarab['nama_proyek']; ?></option>
-                        <?php } ?>
-                        </select>
+                        <input class="form-control" readonly="true" value="<?php echo $data['nama_proyek'] ?>" type="text" >
                     </div>
                     <div class="form-group">
-                        <label>Karyawan</label>
-                       <select class="form-control" name="id_karyawan">
-                        <?php
-                        $result = mysqli_query($koneksi, "SELECT * FROM karyawan ORDER BY nama_karyawan ASC");
-                          
-                            while($datakaryawan = mysqli_fetch_array($result)) {   
-                        ?>
-                        <option value="<?php echo $datakaryawan['id_karyawan']; ?>" <?php echo ( $datakaryawan['id_karyawan'] == $data['id_karyawan']) ? 'selected' : ''; ?>><?php echo $datakaryawan['nama_karyawan']; ?></option>
-                        <?php } ?>
-                        </select>
+                        <label>Project Manager</label>
+                        <input class="form-control" readonly="true" value="<?php echo $data['nama_karyawan'] ?>" type="text" >
                     </div>
-                     <div class="form-group">
-                        <label>Attachment</label>
-                       <a href="images/<?php echo $data['attachment']; ?>" target="blank"><?php echo $data['attachment']; ?></a>
-                        <input name="attachment" type="file" />
+                    
+                    <div class="form-group">
+                        <label>Attachment</label><br/>
+                        <a href="#">Download File</a>
                     </div>
                     <div class="form-group">
                         <label>Periode</label>
-                        <input class="form-control datepicker" type="text" name="periode" value="<?php echo $data['periode']; ?>">
+                        <input class="form-control" readonly="true" value="<?php echo $data['periode'] ?>" type="text" >
                     </div>
                     <div class="form-group">
-                        <label>Keterangan</label>
-                        <input class="form-control" type="text" name="keterangan" value="<?php echo $data['keterangan']; ?>">
+                      <label>Detail Anggaran</label>
                     </div>
-                   
+                     
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dynamic_field">
+                            <tr>
+                                <td><b>Nama Anggaran</b></td>
+                                <td><b>Nominal</b></td>
+                                <td><b>Status</b></td>
+                                
+                            </tr>
+                            <?php 
+                            $i=0;
+                            foreach($db->edit_detail($_GET['id']) as $data2) {?>
+
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="id_det[]" value="<?php echo $data2['id_det'] ?>" />
+                                    <input type="text" name="nama_anggaran[]" placeholder="Nama Anggaran" class="form-control name_list" value="<?php echo $data2['nama_anggaran'] ?>" />
+                                </td>
+                                <td>
+                                    <input type="text" name="nominal[]" placeholder="Nominal" class="form-control name_list" value="<?php echo $data2['nominal'] ?>">
+                                </td>
+                                <td>
+                                     <select class="form-control" name="status[]">
+                                    <option <?php if( $data2['status']=='Belum Disetujui'){echo "selected"; } ?> value="Belum Disetujui">Belum disetujui</option>
+                                    <option <?php if( $data2['status']=='Disetujui'){echo "selected"; } ?> value="Disetujui">Setuju</option>
+                                    <option <?php if( $data2['status']=='Tidak Disetujui'){echo "selected"; } ?> value="Tidak Disetujui">Tidak setuju</option>
+                                   
+                                    
+                                    </select>
+                                </td>  
+                            
+                            </tr>
+                            <?php } ?>
+                        </table>
+                        
+                    </div>
+
+                    
                     <button type="submit" name="submit" class="btn btn-info">Save </button>
-                    <a onclick="window.history.back();return false;" class="btn btn-warning"><i class="fa fa-reply"></i> Back</a> 
+                    <a onclick="window.history.back();return false;" class="btn btn-warning"><i class="fa fa-reply"></i> Back</a>
+
                 </form>
         </div>
     </div>
 </div>
-</section>
+    </body>
+</html>
+        <script>
+               
+             
+ $(document).ready(function(){ 
+    
+      var i=1;  
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<tr id="row'+i+'"> <td><input type="text" name="nama_anggaran[]" placeholder="Nama Anggaran" class="form-control name_list" /></td><td><input type="text" name="nominal[]" placeholder="Nominal" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+      });  
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });  
+      $('#submit').click(function(){            
+           $.ajax({  
+                url:"name.php",  
+                method:"POST",  
+                data:$('#add_name').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+      });  
+ });  
+            </script>
+          
+          <?php
+    }
+    ?>

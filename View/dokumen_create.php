@@ -1,18 +1,23 @@
-<div class="col-md-6 col-sm-6 col-xs-12">
+<?php
+ require 'src/Domain/dokumen_model.php';
+ $db = new Dokumen();
+ ?>
+ <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="panel panel-info">
         <div class="panel-heading">
            <b>DATA DOKUMEN</b>
         </div>
     <div class="panel-body">
-        <form role="form" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
+        <form role="form" method="POST" action="src/Infrastruktur/dokumen.php?aksi=tambah" >
+                     <div class="form-group">
                         <label>Proyek</label>
                         <select class="form-control" name="id_proyek">
-                        <option>SMI</option>
-                        <option>Raja Pindah</option>
-                        <option>EmasDigi</option>
+                        <?php
+                            foreach($db->tampil_data_proyek() as $data){
+                        ?>
+                        <option value="<?php echo $data['id_proyek']; ?>"><?php echo $data['nama_proyek']; ?></option>
+                        <?php } ?>
                         </select>
-                                
                     </div>
                     <div class="form-group">
                         <label>Judul</label>
@@ -20,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label>Dokumen</label><br>
-                        <input type="file" name="attachment" >
+                        <input class="form-control" type="text" name="attachment" >
                     </div>
                     
                     <button type="submit" name="submit" class="btn btn-info">Save </button>
@@ -31,11 +36,5 @@
     </div>
 </div>
 </section>
-
-
-        <script>
-                alert("Data Dokumen Berhasil Ditambahkan ");
-                location="?page=dokumen_index";
-        </script>
            
 

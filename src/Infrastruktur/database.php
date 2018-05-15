@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Nafilul Mubin
- * Date: 25/04/2018
- * Time: 9:25
- */
-session_start();
-
-class database{
+class database {
 
     var $host = "localhost";
     var $user = "root";
